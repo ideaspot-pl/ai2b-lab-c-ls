@@ -18,4 +18,11 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.people = this.personLsService.getAll();
   }
+
+  delete(index: number): void {
+    if (confirm("Are you sure?")) {
+      this.personLsService.deletePerson(index);
+      this.people = this.personLsService.getAll();
+    }
+  }
 }
